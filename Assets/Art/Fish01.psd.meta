@@ -74,7 +74,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -86,7 +86,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -98,7 +98,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -110,7 +110,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -122,7 +122,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -139,12 +139,12 @@ TextureImporter:
       name: Fish01_0
       rect:
         serializedVersion: 2
-        x: 206
+        x: 198
         y: 587
-        width: 139
-        height: 142
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 147
+        height: 150
+      alignment: 9
+      pivot: {x: 0.80734, y: 0.72346556}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,9 +163,9 @@ TextureImporter:
         x: 489
         y: 363
         width: 393
-        height: 290
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 295
+      alignment: 9
+      pivot: {x: 0.47774965, y: 0.49011946}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,12 +181,12 @@ TextureImporter:
       name: Fish01_2
       rect:
         serializedVersion: 2
-        x: 126
-        y: 191
-        width: 253
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 123
+        y: 182
+        width: 256
+        height: 280
+      alignment: 9
+      pivot: {x: 0.75618124, y: 0.82270706}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -6,16 +6,41 @@ public class Fish : MonoBehaviour
 {
     public System.Action<Fish> OnFishDeath;
 
-    public float Points { get; private set; } = 1;
-    public float Weight { get; private set; } = 1;
+    [SerializeField] private bool _isDeadly = false;
+
+    [SerializeField] private float _weight = 1;
+    [SerializeField] private float _points = 1;
 
     public bool IsCatched { get; set; } = false;
 
     private Rigidbody2D _rb;
 
+    [SerializeField] private Transform _sprite;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        CheckSpriteOrientation();
+    }
+
+    private void Update()
+    {
+        transform.right = _rb.velocity.normalized;
+    }
+
+    private void CheckSpriteOrientation()
+    {
+        if (_rb.velocity.x < 0)
+        {
+            _sprite.Rotate(0, 180, 0);
+            _sprite.Rotate(transform.right, 180);
+            _sprite.Rotate(0, 180, 0);
+            _sprite.Rotate(0, 0, -60);
+        }
     }
 
     public void AddVelocity(Vector2 velocity)
@@ -28,14 +53,17 @@ public class Fish : MonoBehaviour
         _rb.velocity = velocity;
     }
 
+    public bool IsDeadly()
+    {
+        return _isDeadly;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("COllision " + collision.name);
-
         if (collision.name == "Laser")
             return;
 
         OnFishDeath?.Invoke(this);
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject, 0.05f);
     }
 }

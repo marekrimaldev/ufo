@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Laser : MonoBehaviour
 {
+    [SerializeField] private float _dischargeDuration = 5;
+    [SerializeField] private float _chargeDuration = 5;
+    private float _remainingEnergy = 100;
+
     [SerializeField] private float _minStrenght = 1;
     [SerializeField] private float _maxStrengt = 10;
     [SerializeField] private float _minDistance = 1;
     [SerializeField] private float _maxDistance = 10;
+
+    [SerializeField] private UnityEvent<float> OnEnergyChange;
 
     private List<Fish> _fishes = new List<Fish>();
 
@@ -15,18 +22,65 @@ public class Laser : MonoBehaviour
     private Transform _pullerDestination;
     private bool _isPulling = false;
 
+    private Collider2D _collider;
+    private SpriteRenderer _sr;
+
+    private void Start()
+    {
+        _collider = GetComponent<Collider2D>();
+        _sr = GetComponent<SpriteRenderer>();
+
+        Enable(false);
+    }
+
     public void StartPullingFishes(Rigidbody2D puller)
     {
+        Enable(true);
+
         _pullerRb = puller;
         _pullerDestination = puller.transform;
         _isPulling = true;
+
+        StartCoroutine(DischargeEnergy());
     }
 
     public void StopPullingFishes()
     {
+        Enable(false);
+
         _pullerRb = null;
         _pullerDestination = null;
         _isPulling = false;
+
+        StartCoroutine(ChargeEnergy());
+    }
+
+    private IEnumerator DischargeEnergy()
+    {
+        while (_isPulling)
+        {
+            _remainingEnergy -= Time.deltaTime * 100 / _dischargeDuration;
+
+            if(_remainingEnergy <= 0)
+            {
+                StopPullingFishes();
+            }
+
+            _remainingEnergy = Mathf.Max(_remainingEnergy, 0);
+            OnEnergyChange.Invoke(_remainingEnergy);
+            yield return null;
+        }
+    }
+
+    private IEnumerator ChargeEnergy()
+    {
+        while (!_isPulling)
+        {
+            _remainingEnergy += Time.deltaTime * 100 / _chargeDuration;
+            _remainingEnergy = Mathf.Min(_remainingEnergy, 100);
+            OnEnergyChange.Invoke(_remainingEnergy);
+            yield return null;
+        }
     }
 
     private void Update()
@@ -64,10 +118,19 @@ public class Laser : MonoBehaviour
 
     private void RemoveFish(Fish fish)
     {
-        Debug.Log("Removing fish");
-
         _fishes.Remove(fish);
         fish.OnFishDeath -= RemoveFish;
+    }
+
+    public bool IsEnabled()
+    {
+        return _collider.enabled;
+    }
+
+    private void Enable(bool value)
+    {
+        _collider.enabled = value;
+        _sr.enabled = value;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -75,7 +138,6 @@ public class Laser : MonoBehaviour
         Fish fish = collision.GetComponentInParent<Fish>();
         if (fish != null)
         {
-            Debug.Log("Fish Added");
             fish.IsCatched = true;
             AddFish(fish);
         }
