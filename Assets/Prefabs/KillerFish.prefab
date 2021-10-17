@@ -339,6 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5101727681294739887}
+  - component: {fileID: -423101871372425498}
   - component: {fileID: 8497796167050525171}
   - component: {fileID: 1245730643}
   m_Layer: 0
@@ -363,6 +364,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-423101871372425498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101727681294739886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07857300141c75640ab9b0e87491baf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &8497796167050525171
 Rigidbody2D:
   serializedVersion: 4
@@ -448,8 +461,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5498872, y: 0.35668325}
-  m_Size: {x: 4.2748995, y: 10.154876}
+  m_Offset: {x: 0.5498872, y: 0.24757433}
+  m_Size: {x: 4.206707, y: 9.936658}
   m_Direction: 0
 --- !u!1 &5101727681683642817
 GameObject:

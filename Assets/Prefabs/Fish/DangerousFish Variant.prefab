@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 805029468}
   - component: {fileID: 805029469}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FishDangerous_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420724699}
   - component: {fileID: 1420724700}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FishDangerous_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1650337711}
   - component: {fileID: 1650337712}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FishDangerous_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1732642182}
   - component: {fileID: 2343906086995601303}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,14 +272,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732642181}
-  m_LocalRotation: {x: -0, y: -0, z: -0.4180293, w: 0.9084336}
+  m_LocalRotation: {x: -0, y: -0, z: -0.47547865, w: 0.8797273}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.24916555, y: 0.24916555, z: 0.24916555}
   m_Children:
   - {fileID: 805029468}
   m_Father: {fileID: 1693278927830478582}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -49.42}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -56.781}
 --- !u!60 &2343906086995601303
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -324,9 +324,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2743021323990823065, guid: fe5c4eabb4be2654b9f78be133c40695, type: 3}
+      propertyPath: _damage
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743021323990823065, guid: fe5c4eabb4be2654b9f78be133c40695, type: 3}
+      propertyPath: _points
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743021323990823065, guid: fe5c4eabb4be2654b9f78be133c40695, type: 3}
       propertyPath: _sprite
       value: 
       objectReference: {fileID: 1732642182}
+    - target: {fileID: 2743021323990823065, guid: fe5c4eabb4be2654b9f78be133c40695, type: 3}
+      propertyPath: _weight
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743021323990823065, guid: fe5c4eabb4be2654b9f78be133c40695, type: 3}
+      propertyPath: _isDeadly
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2743021323990823070, guid: fe5c4eabb4be2654b9f78be133c40695, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6004592097861099861}
   - component: {fileID: 8160639566793735736}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2986528555631259148}
   - component: {fileID: 5558631501699681060}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Fin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6817236573607745604}
   - component: {fileID: 6176255665995721843}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7185499365983809762}
   - component: {fileID: 7579688373074986552}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,9 +320,21 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2743021323990823065, guid: fe5c4eabb4be2654b9f78be133c40695, type: 3}
+      propertyPath: _damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743021323990823065, guid: fe5c4eabb4be2654b9f78be133c40695, type: 3}
+      propertyPath: _points
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743021323990823065, guid: fe5c4eabb4be2654b9f78be133c40695, type: 3}
       propertyPath: _sprite
       value: 
       objectReference: {fileID: 6004592097861099861}
+    - target: {fileID: 2743021323990823065, guid: fe5c4eabb4be2654b9f78be133c40695, type: 3}
+      propertyPath: _weight
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2743021323990823070, guid: fe5c4eabb4be2654b9f78be133c40695, type: 3}
       propertyPath: m_RootOrder
       value: 0
