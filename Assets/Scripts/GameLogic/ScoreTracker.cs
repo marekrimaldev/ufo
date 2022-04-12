@@ -33,6 +33,6 @@ public class ScoreTracker : MonoBehaviour
 
     public void DisplayTotalScore()
     {
-        _gameFinishText.text = "score: " + _score.ToString("D3");
+        FindObjectOfType<Outro>().DisplayScore(_score);
     }
 }

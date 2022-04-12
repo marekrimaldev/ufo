@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
     private TimeTracker _timeTracker;
     private bool _gameOver = false;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
         _scoreTracker = GetComponent<ScoreTracker>();
@@ -38,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Game");
         StartGame();
     }
 
@@ -47,9 +52,16 @@ public class GameManager : MonoBehaviour
         if (_gameOver)
             return;
 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
         _gameOver = true;
 
-        _gameFinishScreen.SetActive(true);
+        //_gameFinishScreen.SetActive(true);
+        Invoke("DisplayFinalScore", .1f);
+    }
+
+    private void DisplayFinalScore()
+    {
         _scoreTracker.DisplayTotalScore();
     }
 
@@ -58,6 +70,7 @@ public class GameManager : MonoBehaviour
         if (_gameOver)
             return;
 
+        _timeTracker.StopCountdown();
         _gameOver = true;
 
         _gameOverScreen.SetActive(true);

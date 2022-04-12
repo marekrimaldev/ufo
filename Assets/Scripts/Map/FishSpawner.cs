@@ -87,6 +87,7 @@ public class FishSpawner : MonoBehaviour
             while (!spawned)
             {
                 int idx = Random.Range(0, _spawnableFishes.Length);
+                //int idx = 3;
                 SpawnableFish spawnableFish = _spawnableFishes[idx];
 
                 float weight = Random.Range(0, _maxRarity) * _rarityMultiplier;

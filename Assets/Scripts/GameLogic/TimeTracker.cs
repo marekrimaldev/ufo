@@ -12,6 +12,8 @@ public class TimeTracker : MonoBehaviour
     [SerializeField] private int _timeLimit = 60;
     private int _time;
 
+    private Coroutine _countdown;
+
     void Start()
     {
         Reset();
@@ -24,7 +26,12 @@ public class TimeTracker : MonoBehaviour
 
     public void StartCountdown()
     {
-        StartCoroutine(Countdown());
+        _countdown = StartCoroutine(Countdown());
+    }
+
+    public void StopCountdown()
+    {
+        StopCoroutine(_countdown);
     }
 
     private void DisplayTime()

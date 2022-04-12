@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform _sprite;
 
     [SerializeField] private AudioClip _laserSound;
+    [SerializeField] private AudioClip _catchSound;
+    [SerializeField] private AudioClip _hitSound;
     private AudioSource _audioSource;
 
     void Start()
@@ -99,13 +101,13 @@ public class Player : MonoBehaviour
         if (fish != null && fish.IsCatched)
         {
             OnGainScore.Invoke(fish.GetPoints());
+            _audioSource.PlayOneShot(_catchSound);
         }
         else if (fish != null && !fish.IsCatched)
         {
             _laser.AddEnergy(-fish.GetDamage());
+            _audioSource.PlayOneShot(_hitSound);
         }
-
-        Debug.Log("Collision");
 
         KillerFish killer = collision.GetComponentInParent<KillerFish>();
         if (killer != null)

@@ -14,6 +14,8 @@ public class Fish : MonoBehaviour
 
     public bool IsCatched { get; set; } = false;
 
+    [SerializeField] private bool _fakinmecoun = false;
+
     private Rigidbody2D _rb;
 
     [SerializeField] private Transform _sprite;
@@ -41,6 +43,11 @@ public class Fish : MonoBehaviour
             _sprite.Rotate(transform.right, 180);
             _sprite.Rotate(0, 180, 0);
             _sprite.Rotate(0, 0, -60);
+
+            if (_fakinmecoun)
+            {
+                _sprite.Rotate(0, 0, -50);
+            }
         }
     }
 
